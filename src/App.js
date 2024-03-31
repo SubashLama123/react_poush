@@ -14,7 +14,7 @@ const App = () => {
       path: '/',
       element: <RootLayOut />,
       children: [
-        { index: true, element: <Home /> },
+        { index: true, element: <Home /> }, g
         { path: 'about', element: <About /> },
         { path: 'contact', element: <Contact /> },
         { path: '*', element: <NotFound /> },
