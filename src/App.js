@@ -7,6 +7,12 @@ import Home from "./features/Home";
 
 
 const App = () => {
+  // const p = { id: 1, p: 2 }
+  // const person = {
+  //   name: 'per',
+  //   ...p
+  // };
+
 
 
   const router = createBrowserRouter([
@@ -14,7 +20,7 @@ const App = () => {
       path: '/',
       element: <RootLayOut />,
       children: [
-        { index: true, element: <Home /> }, g
+        { index: true, element: <Home /> },
         { path: 'about', element: <About /> },
         { path: 'contact', element: <Contact /> },
         { path: '*', element: <NotFound /> },
