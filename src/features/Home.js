@@ -1,45 +1,58 @@
-import { useState } from "react";
-import { useApiHooks } from "../hooks/api_hooks"
-import Detail from "./Detail";
-
-
+import { useEffect, useRef, useState } from "react"
 
 const Home = () => {
 
-  const [id, setId] = useState(null);
+  const tar = useRef(null);
+  const inp = useRef(null);
+  // useEffect(() => {
+  //   tar.current.focus();
+  // }, [])
 
-
-  const [load, data, err] = useApiHooks({ s: 'spider' });
-
-  if (load) {
-    return <h1>Loading......</h1>
+  const goDown = () => {
+    console.log(inp.current.value);
+    // tar.current.scrollIntoView({ behavior: 'smooth' });
   }
 
 
-
   return (
-    <div className="p-5 grid grid-cols-2">
-      <div>
+    <div>
 
-        {data && data.Search.map((movie) => {
-          return <div onClick={() => {
-            setId(movie.imdbID)
-          }} key={movie.imdbID} className="flex mb-3 space-x-5 shadow-md p-2 bx cursor-pointer">
-            <div className="img">
-              <img className="h-20 w-20 object-cover " src={movie.Poster} alt="" />
-            </div>
+      <button onClick={goDown}><h1>Go To 7</h1></button>
 
-            <div className="info">
-              <h1>{movie.Title}</h1>
-              <p>Release: {movie.Year}</p>
+      <input ref={inp} className="border-2 border-black " type="text" />
 
-            </div>
-
-          </div>
-        })}
+      <div className="bx1">
+        <h1>Box1</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, autem, minima facere tempore, dignissimos in ea commodi perferendis totam maxime velit explicabo eveniet esse voluptatibus repudiandae rem nihil dicta quia. Soluta, praesentium rem enim similique quaerat non aut molestias quo qui. Unde non consectetur, velit debitis corrupti magnam nihil omnis.</p>
+      </div>
+      <div className="bx1">
+        <h1>Box1</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, autem, minima facere tempore, dignissimos in ea commodi perferendis totam maxime velit explicabo eveniet esse voluptatibus repudiandae rem nihil dicta quia. Soluta, praesentium rem enim similique quaerat non aut molestias quo qui. Unde non consectetur, velit debitis corrupti magnam nihil omnis.</p>
+      </div>
+      <div className="bx1">
+        <h1>Box1</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, autem, minima facere tempore, dignissimos in ea commodi perferendis totam maxime velit explicabo eveniet esse voluptatibus repudiandae rem nihil dicta quia. Soluta, praesentium rem enim similique quaerat non aut molestias quo qui. Unde non consectetur, velit debitis corrupti magnam nihil omnis.</p>
+      </div>
+      <div className="bx1">
+        <h1>Box1</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, autem, minima facere tempore, dignissimos in ea commodi perferendis totam maxime velit explicabo eveniet esse voluptatibus repudiandae rem nihil dicta quia. Soluta, praesentium rem enim similique quaerat non aut molestias quo qui. Unde non consectetur, velit debitis corrupti magnam nihil omnis.</p>
+      </div>
+      <div className="bx1">
+        <h1>Box1</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, autem, minima facere tempore, dignissimos in ea commodi perferendis totam maxime velit explicabo eveniet esse voluptatibus repudiandae rem nihil dicta quia. Soluta, praesentium rem enim similique quaerat non aut molestias quo qui. Unde non consectetur, velit debitis corrupti magnam nihil omnis.</p>
+      </div>
+      <div className="bx1">
+        <h1>Box1</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, autem, minima facere tempore, dignissimos in ea commodi perferendis totam maxime velit explicabo eveniet esse voluptatibus repudiandae rem nihil dicta quia. Soluta, praesentium rem enim similique quaerat non aut molestias quo qui. Unde non consectetur, velit debitis corrupti magnam nihil omnis.</p>
+      </div>
+      <div ref={tar} className="bx7">
+        <h1>Box7</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, autem, minima facere tempore, dignissimos in ea commodi perferendis totam maxime velit explicabo eveniet esse voluptatibus repudiandae rem nihil dicta quia. Soluta, praesentium rem enim similique quaerat non aut molestias quo qui. Unde non consectetur, velit debitis corrupti magnam nihil omnis.</p>
       </div>
 
-      {id == null ? <h1>Click TO Show Some Detail</h1> : <Detail id={id} />}
+
+
+
 
     </div>
   )
