@@ -4,10 +4,11 @@ import Contact from "./features/Contact";
 import RootLayOut from "./ui/RootLayOut";
 import NotFound from "./ui/NotFound";
 import Home from "./features/Home";
-
+import CategoryFood from "./features/meal/CategoryFood";
 
 
 const App = () => {
+
 
 
 
@@ -18,6 +19,7 @@ const App = () => {
       element: <RootLayOut />,
       children: [
         { index: true, element: <Home /> },
+        { path: 'food/:category', element: <CategoryFood /> },
         { path: 'about', element: <About /> },
         { path: 'contact', element: <Contact /> },
         { path: '*', element: <NotFound /> },
@@ -26,7 +28,6 @@ const App = () => {
 
 
   ]);
-
 
 
   return <RouterProvider router={router} />
