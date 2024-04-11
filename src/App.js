@@ -6,12 +6,8 @@ import NotFound from "./ui/NotFound";
 import Home from "./features/Home";
 
 
+
 const App = () => {
-  // const p = { id: 1, p: 2 }
-  // const person = {
-  //   name: 'per',
-  //   ...p
-  // };
 
 
 

@@ -8,20 +8,15 @@ const Header = () => {
     setShow((prev) => !prev);
   }
 
-
-
-
-
-
-
   return (
     <div className="bg-black text-white px-5 flex sm:items-start items-center justify-between  py-2 sticky top-0 z-10">
       <div>
-        <h1 className="mb-2">Web Logo</h1>
+        <h1 className="mb-2"> <NavLink to='/' replace>Web Logo</NavLink></h1>
 
         {show && <nav className="sm:flex sm:flex-col hidden space-y-2">
-          <NavLink to='/about'> About</NavLink>
-          <NavLink to='/contact'>Contact</NavLink>
+          <button onClick={handleShow}><NavLink to='/about'> About</NavLink></button>
+          <button onClick={handleShow}>  <NavLink to='/contact'>Contact</NavLink></button>
+
         </nav>}
 
       </div>
@@ -30,6 +25,7 @@ const Header = () => {
         {show ? <button onClick={handleShow}><HiOutlineX size={25} /></button> : <button onClick={handleShow}><HiMenuAlt1 size={25} /></button>}
       </div>
       <nav className="space-x-4 sm:hidden">
+
         <NavLink to='/about'> About</NavLink>
         <NavLink to='/contact'>Contact</NavLink>
       </nav>

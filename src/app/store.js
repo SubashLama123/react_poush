@@ -1,13 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { counterSlice } from "../features/counter/counterSlice";
-import { counterSlice1 } from "../features/counter/counter1Slice";
-
-
-
-
+import { configureStore } from '@reduxjs/toolkit'
+import { postApi } from '../features/post/postApi';
 export const store = configureStore({
   reducer: {
-    countSlice: counterSlice.reducer,
-    countSlice1: counterSlice1.reducer
-  }
+    [postApi.reducerPath]: postApi.reducer
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([
+    postApi.middleware
+  ])
 });
