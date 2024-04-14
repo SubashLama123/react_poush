@@ -1,15 +1,19 @@
 import React from 'react'
 import { useGetFoodCategoryQuery } from './mealApi';
-import CategorySkeleton from '../../skeletons/CategorySkeleton';
+import CategorySkeleton from '../../ui/skeletons/CategorySkeleton';
 import { Button, Card, CardBody, CardFooter, CardHeader, Typography } from '@material-tailwind/react';
+import { useNavigate } from 'react-router';
+
 const MealCategory = () => {
+  const nav = useNavigate();
   const { data, isLoading, isError, error } = useGetFoodCategoryQuery();
   if (isLoading) {
     return <CategorySkeleton />;
   }
-  console.log(data);
+
   return (
     <div className='grid grid-cols-3 gap-5'>
+
       {data && data.categories.map((cata) => {
         return <Card key={cata.idCategory} className="mt-6 w-full">
           <CardHeader color="blue-gray" className="relative h-56">
@@ -28,10 +32,11 @@ const MealCategory = () => {
             </Typography>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button>Read More</Button>
+            <Button onClick={() => nav(`/food/${cata.strCategory}`)}>Read More</Button>
           </CardFooter>
         </Card>
       })}
+
 
     </div>
   )
